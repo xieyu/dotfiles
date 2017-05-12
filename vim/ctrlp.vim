@@ -34,6 +34,12 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore "**/*.pyc"
       \ -g ""'
 
+
+function! SearchInProjectDir(pattern)
+    let cmd = 'CtrlSF '. a:pattern ." ".g:projectDir
+    execute cmd
+endfunc
+
 function! ChangeProject(projectDir, ...)
     let defaultIgnoreList = ["", '".git"', '".svn"', '".hg"', '".DS_Store"', '"*.meta"']
     let projectIgnoreList = get(a:, 1, [])
@@ -41,8 +47,8 @@ function! ChangeProject(projectDir, ...)
     let ignoreList = join(list, " --ignore ")
 
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden' . ignoreList . ' -g ""'
-
     let g:projectDir = a:projectDir
     execute 'CtrlPClearAllCaches'
     nmap <leader>t :execute "CtrlP " . g:projectDir<CR>
+    command! -nargs=* Ag call SearchInProjectDir('<args>')
 endfunc

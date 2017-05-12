@@ -6,6 +6,8 @@ source ~/.vim/common.vim
 " plugin-settings
 source ~/.vim/ctrlp.vim
 source ~/.vim/airline.vim
+source ~/.vim/jsx.vim
+
 source ~/.vim/projects.vim
 
 

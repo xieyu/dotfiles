@@ -15,3 +15,8 @@ alias szhrc="source ~/.zshrc"
 source $HOME/.zsh/work/work.zsh
 
 export PATH="/usr/local/Cellar/node/7.10.0/bin:$PATH"
+export PATH="$PATH:/usr/local/sbin"
+
+alias mqst="sudo rabbitmqctl status"
+alias mqkill="sudo rabbitmqctl stop"
+alias mqserver="sudo rabbitmq-server -detached"

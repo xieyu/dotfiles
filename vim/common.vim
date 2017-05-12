@@ -59,7 +59,4 @@ set wildignore=*.o,*~,*.pyc,*.class
 
 au InsertLeave * set nopaste
 
-" input method
-set noimd
-set imi=2
-set ims=2
+set autochdir
