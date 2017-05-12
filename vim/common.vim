@@ -1,0 +1,65 @@
+" file
+syntax on
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+set autoread
+set ffs=unix,dos,mac
+
+set formatoptions+=m
+set formatoptions+=B
+
+" encoding
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set helplang=cn
+set termencoding=utf-8
+
+
+set nobackup
+set noswapfile
+set magic
+
+set number
+set nowrap
+
+set showmatch
+set foldenable
+
+set nohlsearch
+set incsearch
+
+set title
+
+set novisualbell
+set noerrorbells
+
+" status bar
+set ruler
+set showmode
+set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+set laststatus=2
+
+
+hi! link SignColumn   LineNr
+hi! link ShowMarksHLl DiffAdd
+hi! link ShowMarksHLu DiffChange
+
+" tab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set expandtab
+set shiftround
+
+set completeopt=longest,menu
+set wildignore=*.o,*~,*.pyc,*.class
+
+au InsertLeave * set nopaste
+
+" input method
+set noimd
+set imi=2
+set ims=2
