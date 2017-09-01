@@ -1,8 +1,5 @@
 if has("gui_running")
-    set guifont=Monaco:h13
-    if has("gui_gtk2")   "GTK2
-        set guifont=Monaco\ 13, Monospace\ 13
-    endif
+    set guifont=Source\ Code\ Pro\ Light:h15
     set guioptions-=T
     set guioptions+=e
     set guioptions-=r

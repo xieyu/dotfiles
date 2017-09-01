@@ -12,7 +12,7 @@ source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias szhrc="source ~/.zshrc"
 
 # work related settings
-source $HOME/.zsh/work/work.zsh
+#source $HOME/.zsh/work/work.zsh
 
 export PATH="/usr/local/Cellar/node/7.10.0/bin:$PATH"
 export PATH="$PATH:/usr/local/sbin"
@@ -20,3 +20,5 @@ export PATH="$PATH:/usr/local/sbin"
 alias mqst="sudo rabbitmqctl status"
 alias mqkill="sudo rabbitmqctl stop"
 alias mqserver="sudo rabbitmq-server -detached"
+alias rn="react-native"
+alias cm="open -a Google\ Chrome --args --disable-web-security --user-data-dir"

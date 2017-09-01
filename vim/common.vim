@@ -35,6 +35,8 @@ set title
 set novisualbell
 set noerrorbells
 
+set mouse=a
+
 " status bar
 set ruler
 set showmode
@@ -60,3 +62,12 @@ set wildignore=*.o,*~,*.pyc,*.class
 au InsertLeave * set nopaste
 
 set autochdir
+set backspace=indent,eol,start
+
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+"set clipboard=unnamed
+
+let g:jsx_ext_required = 0
+
+autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html 
