@@ -14,6 +14,7 @@ Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+
 Plug 'Valloric/MatchTagAlways'
 Plug 'joshdick/onedark.vim'
 
@@ -27,6 +28,5 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'luishdez/vim-less'
 Plug 'darthmall/vim-vue'
-
 
 call plug#end()

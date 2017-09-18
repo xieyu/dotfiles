@@ -10,8 +10,10 @@ function! ChangeProject(projectDir, ...)
     let ignoreList = join(list, " --ignore ")
 
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden' . ignoreList . ' -g ""'
+    let g:ycm_python_binary_path = '/usr/bin/python3'
     let g:projectDir = a:projectDir
     execute 'CtrlPClearAllCaches'
+
     nmap <leader>t :execute "CtrlP " . g:projectDir<CR>
     command! -nargs=* Ag call SearchInProjectDir('<args>')
 endfunc

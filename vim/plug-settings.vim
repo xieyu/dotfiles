@@ -1,3 +1,4 @@
+"ctrlp
 nmap <leader>h :CtrlPMRUFiles<CR>
 nmap <leader>r :CtrlPBufTag<CR>
 nmap <leader>l :CtrlPLine<CR>
@@ -33,3 +34,26 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore "*.fbx"
       \ --ignore "**/*.pyc"
       \ -g ""'
+
+
+"airline
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+  
+
+"ale
+let g:ale_python_pylint_executable = 'python3'   " or 'python' for Python 2
+
+
+"jsx
+let g:jsx_ext_required = 0
+
+"ycm
+

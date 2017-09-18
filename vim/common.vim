@@ -68,6 +68,4 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 "set clipboard=unnamed
 
-let g:jsx_ext_required = 0
-
 autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html 

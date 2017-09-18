@@ -17,6 +17,9 @@ alias szhrc="source ~/.zshrc"
 export PATH="/usr/local/Cellar/node/7.10.0/bin:$PATH"
 export PATH="$PATH:/usr/local/sbin"
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 alias mqst="sudo rabbitmqctl status"
 alias mqkill="sudo rabbitmqctl stop"
 alias mqserver="sudo rabbitmq-server -detached"
