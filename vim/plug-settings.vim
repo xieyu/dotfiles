@@ -56,4 +56,6 @@ let g:ale_python_pylint_executable = 'python3'   " or 'python' for Python 2
 let g:jsx_ext_required = 0
 
 "ycm
+let g:ycm_python_binary_path = 'python3'
+
 
