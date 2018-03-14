@@ -18,6 +18,8 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'joshdick/onedark.vim'
 
+Plug 'jaimecp89/vim-eink'
+
 "async syntax check
 Plug 'https://github.com/w0rp/ale.git'
 
@@ -28,5 +30,8 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'luishdez/vim-less'
 Plug 'darthmall/vim-vue'
+Plug 'majutsushi/tagbar'
+Plug 'inkarkat/vim-mark'
+Plug 'inkarkat/vim-ingo-library'
 
 call plug#end()

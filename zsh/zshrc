@@ -20,8 +20,11 @@ export PATH="$PATH:/usr/local/sbin"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+
 alias mqst="sudo rabbitmqctl status"
 alias mqkill="sudo rabbitmqctl stop"
 alias mqserver="sudo rabbitmq-server -detached"
 alias rn="react-native"
 alias cm="open -a Google\ Chrome --args --disable-web-security --user-data-dir"
+
+export DISABLE_AUTO_TITLE=true

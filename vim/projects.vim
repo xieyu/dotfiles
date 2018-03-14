@@ -1,5 +1,5 @@
 function! SearchInProjectDir(pattern)
-    let cmd = 'CtrlSF '. a:pattern ." ".g:projectDir
+    let cmd = 'CtrlSF -C 0 '. a:pattern . " " . g:projectDir
     execute cmd
 endfunc
 
@@ -12,10 +12,12 @@ function! ChangeProject(projectDir, ...)
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden' . ignoreList . ' -g ""'
     let g:ycm_python_binary_path = '/usr/bin/python3'
     let g:projectDir = a:projectDir
+    let g:ctrlsf_default_root = a:projectDir
     execute 'CtrlPClearAllCaches'
 
     nmap <leader>t :execute "CtrlP " . g:projectDir<CR>
     command! -nargs=* Ag call SearchInProjectDir('<args>')
+    nmap <leader>f :execute "CtrlSF -C 0  "."<C-r><C-w> " .g:projectDir<CR>
 endfunc
 
 
@@ -42,3 +44,23 @@ command! Cdtctui :call ChangeProject("/codes/skydata/tct_ui")
 command! Cdcelery :call ChangeProject("/codes/github/celery")
 command! Cdkombu :call ChangeProject("/codes/github/kombu")
 command! Cdpit :call ChangeProject("/codes/skydata/pit-error-detection", ["env"])
+command! Cdtflearn :call ChangeProject("/codes/demo/tf-learn")
+command! Cdtf :call ChangeProject("/codes/github/tensorflow")
+command! Cdwindpower :call ChangeProject("/codes/skydata/wind-power")
+command! Cdbosen :call ChangeProject("/codes/petuum/bosen")
+command! Cdposeidon :call ChangeProject("/codes/skydata/poseidon-obfuscate", ["pkgs/", "purelib"])
+command! Cdzabbix :call ChangeProject("/codes/skydata/zabbix-mysql-web")
+command! Cdsqlalchemy :call ChangeProject("/usr/local/lib/python3.6/site-packages/sqlAlchemy")
+command! Cdnotebook :call ChangeProject("/codes/github/notebook")
+command! Cdplayground :call ChangeProject("/codes/github/playground")
+command! Cdflaskpymongo :call ChangeProject("/codes/github/flask-pymongo")
+command! Cddocker :call ChangeProject("/codes/github/docker")
+command! Cdjupytertensorboard :call ChangeProject("/codes/github/jupyter_tensorboard")
+command! Cdunreal :call ChangeProject("/codes/github/UnrealEngine/Engine/Source/Runtime")
+command! Cdtfserv  :call ChangeProject("/codes/github/serving")
+command! Cdkfb :call ChangeProject("/codes/skydata/kfb")
+command! Cdflaskclassy :call ChangeProject("/codes/github/flask-classy")
+command! Cdpymodm :call ChangeProject("/codes/github/pymodm")
+command! Cdmetro :call ChangeProject("/codes/skydata/metro")
+command! Cdskyflow :call ChangeProject("/codes/skydata/skyflow")
+command! Cdwebargs :call ChangeProject("/codes/github/webargs")

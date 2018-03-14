@@ -62,6 +62,7 @@ set wildignore=*.o,*~,*.pyc,*.class
 au InsertLeave * set nopaste
 
 set autochdir
+set autoread
 set backspace=indent,eol,start
 
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>

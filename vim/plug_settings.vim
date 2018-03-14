@@ -3,6 +3,7 @@ nmap <leader>h :CtrlPMRUFiles<CR>
 nmap <leader>r :CtrlPBufTag<CR>
 nmap <leader>l :CtrlPLine<CR>
 nmap <leader>p :CtrlP<CR>
+nmap <leader>j :CtrlSFToggle<CR>
 
 let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_map = '<leader>p'
@@ -49,13 +50,14 @@ let g:airline_symbols.branch = '⎇'
   
 
 "ale
-let g:ale_python_pylint_executable = 'python3'   " or 'python' for Python 2
-
+let g:ale_python_pylint_executable = 'pylint'   " or 'python' for Python 2
 
 "jsx
 let g:jsx_ext_required = 0
 
 "ycm
-let g:ycm_python_binary_path = 'python3'
+let g:ycm_python_binary_path='python3'
 
 
+"ctrlfs
+let g:ctrlsf_position = 'bottom'
