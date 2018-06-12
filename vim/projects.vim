@@ -4,26 +4,26 @@ function! SearchInProjectDir(pattern)
 endfunc
 
 function! ChangeProject(projectDir, ...)
-    let defaultIgnoreList = ["", '".git"', '".svn"', '".hg"', '".DS_Store"', '"*.meta"']
+    let defaultIgnoreList = ["", '".git"', '".svn"', '".hg"', '".DS_Store"', '"*.meta"', '"*.rpm"']
     let projectIgnoreList = get(a:, 1, [])
     let list = defaultIgnoreList + projectIgnoreList
     let ignoreList = join(list, " --ignore ")
 
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden' . ignoreList . ' -g ""'
+
     let g:ycm_python_binary_path = '/usr/bin/python3'
     let g:projectDir = a:projectDir
     let g:ctrlsf_default_root = a:projectDir
-    execute 'CtrlPClearAllCaches'
+    let $FZF_DEFAULT_COMMAND = 'ag %s -i --nocolor --nogroup --hidden' . ignoreList . ' -g "" '. g:projectDir
 
-    nmap <leader>t :execute "CtrlP " . g:projectDir<CR>
-    command! -nargs=* Ag call SearchInProjectDir('<args>')
-    nmap <leader>f :execute "CtrlSF -C 0  "."<C-r><C-w> " .g:projectDir<CR>
+    nmap <leader>t :execute "FZF" . g:projectDir<CR>
+    nmap <leader>f :execute "CtrlSF -C 0 "."<C-r><C-w> " .g:projectDir<CR>
 endfunc
 
 
 command! CddotFiles :call ChangeProject("/codes/github/dotfiles", ["plugged/", "oh-my-zsh/", "zsh-autosuggestions/"])
 command! Cdmri :call ChangeProject("/codes/skydata/mri", ["preview/","code_model/", '"*.docx"', '"*.sqlite3"', '"*.JPG"', '"*.log"', ".repoproject", "node_modules/"])
-command! Cdaxe :call ChangeProject("/codes/skydata/axe", ["node_modules/", 'dist/'])
+command! Cdaxe :call ChangeProject("/codes/skydata/axe", ["node_modules/", 'dist/', "conda-pkgs", "*.pyc"])
+command! Cdaxev2 :call ChangeProject("/codes/skydata/axe/src/apps/v2", ["node_modules/", 'dist/', "conda-pkgs", "*.pyc"])
 command! Cdcritic :call ChangeProject("/codes/github/critic", [])
 command! Cddemo :call ChangeProject("/codes/demo")
 command! Cdxv6 :call ChangeProject("/codes/github/xv6")
@@ -64,3 +64,6 @@ command! Cdpymodm :call ChangeProject("/codes/github/pymodm")
 command! Cdmetro :call ChangeProject("/codes/skydata/metro")
 command! Cdskyflow :call ChangeProject("/codes/skydata/skyflow")
 command! Cdwebargs :call ChangeProject("/codes/github/webargs")
+command! Cdkeras :call ChangeProject("/codes/github/keras")
+command! Cdtctmodel :call ChangeProject("/codes/skydata/TCT_versionII")
+command! Cdpyls :call ChangeProject("/codes/github/python-language-server")

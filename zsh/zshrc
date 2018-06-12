@@ -28,3 +28,5 @@ alias rn="react-native"
 alias cm="open -a Google\ Chrome --args --disable-web-security --user-data-dir"
 
 export DISABLE_AUTO_TITLE=true
+
+alias mk="minikube --alsologtostderr"

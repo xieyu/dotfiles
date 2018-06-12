@@ -70,3 +70,5 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 "set clipboard=unnamed
 
 autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html 
+hi pythonSelf ctermfg=174 guifg=#6094DB cterm=bold gui=bold
+

@@ -12,8 +12,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Raimondi/delimitMate'
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 
-Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 Plug 'Valloric/MatchTagAlways'
 Plug 'joshdick/onedark.vim'
@@ -31,7 +31,29 @@ Plug 'mxw/vim-jsx'
 Plug 'luishdez/vim-less'
 Plug 'darthmall/vim-vue'
 Plug 'majutsushi/tagbar'
-Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library'
+Plug 'linluk/vim-websearch'
+Plug 'lfv89/vim-interestingwords'
+
+" makrdown preview
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim' 
+
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/PreciseJump'
+Plug 'MaryHal/AceJump.vim'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tenfyzhong/CompleteParameter.vim'
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'gabrielelana/vim-markdown'
+
 
 call plug#end()
