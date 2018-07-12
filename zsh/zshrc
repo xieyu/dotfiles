@@ -30,3 +30,35 @@ alias cm="open -a Google\ Chrome --args --disable-web-security --user-data-dir"
 export DISABLE_AUTO_TITLE=true
 
 alias mk="minikube --alsologtostderr"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fdr() {
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
+  cd "$DIR"
+}
+
+cf() {
+  local file
+
+  file="$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1)"
+
+  if [[ -n $file ]]
+  then
+    if [[ -d $file ]]
+    then
+        cd -- $file
+    else
+        cd -- ${file:h}
+    fi
+  fi
+}

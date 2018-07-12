@@ -40,6 +40,7 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " FZF
 let g:fzf_tags_command = 'ctags -R'
+set rtp+=/usr/local/opt/fzf
 
 nmap <leader>t :execute "FZF"<CR>
 nmap <leader>l :execute "Lines" <CR>
