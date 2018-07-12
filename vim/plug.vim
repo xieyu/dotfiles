@@ -54,6 +54,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'gabrielelana/vim-markdown'
-
+Plug 'chase/vim-ansible-yaml'
 
 call plug#end()

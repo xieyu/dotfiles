@@ -72,3 +72,5 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html 
 hi pythonSelf ctermfg=174 guifg=#6094DB cterm=bold gui=bold
 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
