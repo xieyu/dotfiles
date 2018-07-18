@@ -1,1 +1,1 @@
-/codes/github/dotfiles/vim/vimrc.vim
+/Users/xieyu/.vimrc

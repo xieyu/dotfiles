@@ -24,8 +24,15 @@ Plug 'junegunn/vim-easy-align'
 " themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" colorscheme {{{"
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/seoul256.vim'
+colorscheme onedark
+"}}}"
 
+"nvim terminal
+Plug 'mklabs/split-term.vim'
+Plug 'viniarck/fzf-tabs.nvim'
 
 call plug#end()
