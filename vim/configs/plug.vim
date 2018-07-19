@@ -1,7 +1,17 @@
+" vim: ft=vim:
+
 call plug#begin('~/.vim/plugged')
 
 " file tree and tag bar
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+nmap <C-\> :NERDTreeToggle<CR>
+" Quit when nerdtree is the only buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}} scrooloose/nerdtree "
+
+
 Plug 'majutsushi/tagbar'
 
 " code complete
@@ -25,12 +35,41 @@ if has('timers')
   noremap <expr> <plug>(slash-after) 'zz'.slash#blink(2, 50)
 endif
 
+
+Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesToggle' }
+let g:indentLine_enabled = 0
+" autocmd Filetype *yaml,*xml,c,cpp,go,rust,java let g:indentLine_enabled = 1
+autocmd Filetype json,markdown let g:indentLine_setConceal = 0
+let g:indentLine_char = '│'
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#4E4E4E'
+map <leader>il :IndentLinesToggle<CR>
+" }}} Yggdroot/indentLine "
+
 " global search
 Plug 'https://github.com/dyng/ctrlsf.vim.git'
 
 " themes
+Plug 'ryanoasis/vim-devicons'
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vim_.*\|.*vimrc.*'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*zsh_.*\|.*zshrc.*'] = ''
+
+"air powerline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_alt_sep = ''
+
 
 " colorscheme"
 Plug 'joshdick/onedark.vim'
@@ -56,10 +95,31 @@ Plug 'glts/vim-textobj-comment'
 Plug 'mattn/vim-textobj-url'
 
 "git version control
-Plug 'mhinz/vim-signify' " show vcs symbol on the left side
+"
+"show vcs symbol on the left side
+Plug 'mhinz/vim-signify' 
 let g:signify_sign_add          = '│'
 let g:signify_sign_change       = '│'
 let g:signify_sign_changedelete = '│'
 
+Plug 'tpope/vim-fugitive'
+nmap [q :cprev<CR>
+nmap ]q :cnext<CR>
+nmap [Q :cfirst<CR>
+nmap ]Q :clast<CR>
+nmap <Leader>d :Gdiff<CR>
 
 call plug#end()
+
+
+"open plug github repo in browser by press enter
+function! s:go_github()
+    let s:repo = matchstr(expand("<cWORD>"), '\v[0-9A-Za-z\-\.]+/[0-9A-Za-z\-\.]+')
+    if empty(s:repo)
+        echo "GoGithub: No repository found."
+    else
+        let s:url = 'https://github.com/' . s:repo
+        call netrw#BrowseX(s:url, 0)
+    end
+endfunction
+autocmd FileType *vim,*zsh,*bash,*tmux nnoremap <buffer> <silent> <cr> :call <sid>go_github()<cr>

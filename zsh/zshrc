@@ -1,64 +1,32 @@
-export HOME=/Users/xieyu
+#!/usr/bin/env zsh
+#=============================================================================
+#       Author: Wenxuan Zhang
+#        Email: wenxuangm@gmail.com
+#     HomePage: wenxuan.info
+#=============================================================================
 
-# oh-my-zsh settings
-export ZSH=$HOME/.zsh/oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(git, extract, z)
-source $ZSH/oh-my-zsh.sh
+# Put this line on top to make keybinds work
+bindkey -e
 
-# zsh plugins
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.fzf.zsh       2>/dev/null
+source ~/.zsh_fzf_extra 2>/dev/null
+source ~/.zsh_local     2>/dev/null
+source ~/.zsh_secret    2>/dev/null
 
-alias szhrc="source ~/.zshrc"
+source ~/.zsh_plug
+source ~/.zsh_keybinds
+source ~/.zsh_misc
+source ~/.zsh_aliases
+source ~/.zsh_custom
 
-# work related settings
-#source $HOME/.zsh/work/work.zsh
+source ~/.zsh_theme 2>/dev/null
+(( $+commands[thefuck] )) && source <(thefuck --alias 2>/dev/null)
+(( $+commands[kubectl] )) && source <(kubectl completion zsh)
+(( $+commands[pyenv]   )) && source <(pyenv init -)
+#(( $+commands[fasd] ))    && source <(fasd --init auto)
+#(( $+commands[pip] ))     && source <(pip completion --zsh)  # Too slow!
 
-export PATH="/usr/local/Cellar/node/7.10.0/bin:$PATH"
-export PATH="$PATH:/usr/local/sbin"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#source ~/.sdkman/bin/sdkman-init.sh 2>/dev/null
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-
-alias mqst="sudo rabbitmqctl status"
-alias mqkill="sudo rabbitmqctl stop"
-alias mqserver="sudo rabbitmq-server -detached"
-alias rn="react-native"
-alias cm="open -a Google\ Chrome --args --disable-web-security --user-data-dir"
-
-export DISABLE_AUTO_TITLE=true
-
-alias mk="minikube --alsologtostderr"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-fdr() {
-  local declare dirs=()
-  get_parent_dirs() {
-    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
-    if [[ "${1}" == '/' ]]; then
-      for _dir in "${dirs[@]}"; do echo $_dir; done
-    else
-      get_parent_dirs $(dirname "$1")
-    fi
-  }
-  local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
-  cd "$DIR"
-}
-
-cf() {
-  local file
-
-  file="$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1)"
-
-  if [[ -n $file ]]
-  then
-    if [[ -d $file ]]
-    then
-        cd -- $file
-    else
-        cd -- ${file:h}
-    fi
-  fi
-}
+return 0
