@@ -78,3 +78,5 @@ nmap <a-b> :Buffers<CR>
 nmap <leader>t :FZF<CR>
 nmap <leader>l :Lines <CR>
 nmap <leader>h :History <CR>
+nmap <leader>r :BTags<CR>
+nmap <leader>f :execute "Ag "."<C-r><C-w>"<CR>
