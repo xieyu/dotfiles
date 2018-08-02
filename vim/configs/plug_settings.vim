@@ -9,6 +9,7 @@ let g:web_search_browser='open -a "/Applications/Google Chrome.app"'
 "set hidden
 let g:deoplete#enable_at_startup = 1
 
+let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],

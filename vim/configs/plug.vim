@@ -21,6 +21,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+
 Plug 'tenfyzhong/CompleteParameter.vim'
 
 " file jumps
@@ -46,9 +48,6 @@ let g:indentLine_color_gui = '#4E4E4E'
 map <leader>il :IndentLinesToggle<CR>
 " }}} Yggdroot/indentLine "
 
-" global search
-Plug 'https://github.com/dyng/ctrlsf.vim.git'
-
 " themes
 Plug 'ryanoasis/vim-devicons'
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {} " needed
@@ -67,8 +66,8 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_alt_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_alt_sep = ''
 
 
 " colorscheme"
