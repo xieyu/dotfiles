@@ -9,6 +9,7 @@ ln -sf  "$SCRIPT_DIR/vimrc.vim"              ~/.vimrc
 ln -s  "$SCRIPT_DIR/configs"              ~/.vim/configs
 ln -s  "$SCRIPT_DIR/autoload"              ~/.vim/autoload
 ln -sf  "$SCRIPT_DIR/projects.vim"              ~/.vim/projects.vim
+ln -sf  "$SCRIPT_DIR/settings.json"              ~/.config/nvim/settings.json
 
 # Install plugins managed by vim-plug
 # `tty &>/dev/null` is to make sure the script is run from a tty(ie, not ssh)

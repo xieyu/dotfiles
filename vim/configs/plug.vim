@@ -14,11 +14,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 Plug 'majutsushi/tagbar'
 
+Plug 'MattesGroeger/vim-bookmarks'
+
 " code complete
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
@@ -59,10 +63,12 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*zsh_.*\|.*zshrc.*'] =
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator'
+
 
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_type = 0
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -80,18 +86,37 @@ Plug 'stephpy/vim-yaml',                 {'for': 'yaml'}
 Plug 'andrewstuart/vim-kubernetes',      {'for': 'yaml'}
 Plug 'ekalinin/Dockerfile.vim',          {'for': 'dockerfile'}
 Plug 'tmux-plugins/vim-tmux',            {'for': 'tmux' }
-Plug 'pangloss/vim-javascript',          {'for': 'javascript'}
 Plug 'plasticboy/vim-markdown',          {'for': 'markdown'}
 Plug 'elzr/vim-json',                    {'for': 'json'}
 Plug 'ap/vim-css-color',                 {'for': 'css'}
 Plug 'vim-scripts/awk.vim',              {'for': 'awk'}
 
+Plug 'danro/rename.vim'
 
 "text objects
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'glts/vim-textobj-comment'
 Plug 'mattn/vim-textobj-url'
+
+Plug 'bfrg/vim-cpp-modern'
+Plug 'derekwyatt/vim-scala'
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+Plug 'w0rp/ale'
+
+Plug 'carlitux/deoplete-ternjs'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+"Plug 'pangloss/vim-javascript',          {'for': 'javascript'}
+
+
+"Typescript Plugins
+"Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+"Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
+"Plug 'mhartington/deoplete-typescript'
+
+
 
 "git version control
 "

@@ -49,9 +49,9 @@ hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
 
 " tab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smarttab
 set expandtab
 set shiftround
@@ -61,7 +61,6 @@ set wildignore=*.o,*~,*.pyc,*.class
 
 au InsertLeave * set nopaste
 
-set autochdir
 set autoread
 set backspace=indent,eol,start
 
@@ -73,6 +72,6 @@ autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html
 hi pythonSelf ctermfg=174 guifg=#6094DB cterm=bold gui=bold
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType python setlocal ts=2 sts=2 sw=2 expandtab
 
-set autochdir
 set rtp+=/usr/local/opt/fzf
