@@ -23,7 +23,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 
 
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
@@ -33,6 +32,14 @@ Plug 'tenfyzhong/CompleteParameter.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'uarun/vim-protobuf'
+Plug 'uber/prototool', { 'rtp':'vim/prototool' }
+
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+
+"markdwn preview
+Plug 'iamcco/markdown-preview.vim'
 
 " vim-slash provides a set of mappings for enhancing in-buffer search experience in Vim.
 Plug 'junegunn/vim-slash' 
@@ -64,6 +71,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'cespare/vim-toml'
 
 
 let g:airline_powerline_fonts = 1
@@ -101,8 +109,9 @@ Plug 'mattn/vim-textobj-url'
 
 Plug 'bfrg/vim-cpp-modern'
 Plug 'derekwyatt/vim-scala'
+
 Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+"Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'w0rp/ale'
 
@@ -132,6 +141,9 @@ nmap ]q :cnext<CR>
 nmap [Q :cfirst<CR>
 nmap ]Q :clast<CR>
 nmap <Leader>d :Gdiff<CR>
+
+Plug 'ayu-theme/ayu-vim' " or other package manager
+Plug 'endel/vim-github-colorscheme'
 
 call plug#end()
 

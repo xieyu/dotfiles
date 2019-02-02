@@ -61,6 +61,21 @@ kpod() {
   fi
 }
 
+ksvs() {
+  export FZF_DEFAULT_OPTS='--height 90% --reverse --border --bind up:preview-up,down:preview-down --color dark'
+  local namespace=$1
+  local preview_cmd="kubectl logs --tail 30 $@ {} | bat -l yaml --color \"always\""
+  local podname=$(kubectl get services -n $namespace -o name|\
+    fzf --reverse\
+        --no-multi\
+        --border\
+        --preview $preview_cmd\
+    )
+  if [[ $podname != '' ]]; then
+    kubectl describe services $podname -n $namespace|bat -l yaml --color "always"
+  fi
+}
+
 kdpod() {
   #kubectl get pods -n flying --no-headers=true |head -n 1|awk '{printf $1;}'|xargs kubectl describe pods -n flying $1
   export FZF_DEFAULT_OPTS='--height 90% --reverse --border --bind up:preview-up,down:preview-down --color dark'
@@ -91,6 +106,8 @@ klog() {
     kubectl logs $@ -f $podname
   fi
 }
+
+
 
 ct() {
   export FZF_DEFAULT_OPTS='--height 90% --reverse --bind up:preview-up,down:preview-down --color dark'

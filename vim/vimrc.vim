@@ -6,3 +6,4 @@ source ~/.vim/configs/keymap.vim
 source ~/.vim/configs/plug.vim
 source ~/.vim/configs/plug_settings.vim
 source ~/.vim/configs/plug_fzf_settings.vim
+source ~/.vim/configs/project.vim

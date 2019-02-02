@@ -8,14 +8,13 @@ let g:web_search_browser='open -a "/Applications/Google Chrome.app"'
 "lsp-client
 "set hidden
 let g:deoplete#enable_at_startup = 1
-
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'python': ['pyls', '-v',  '-v', '--log-file=/tmp/pyls.log'],
     \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
-    \ 'go': ["go-langserver"],
+    \ 'go': ["go-langserver", "-gocodecompletion", "-lint-tool", "golint"]
     \ }
 
 let g:LanguageClient_rootMarkers = {
@@ -23,8 +22,13 @@ let g:LanguageClient_rootMarkers = {
     \ 'python': ['.root'],
     \ }
 
+let $RUST_BACKTRACE = 1
+
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
 let g:LanguageClient_settingsPath = '~/.config/nvim/settings.json'
+let g:LanguageClient_serverStderr = '/tmp/langserver.log'
+let g:LanguageClient_loggingFile ="/tmp/langclient.log"
+"let g:LanguageClient_loggingLevel="DEBUG"
 
 nn <silent> K :call LanguageClient#textDocument_hover()<CR>
 nn <silent> gd :call LanguageClient#textDocument_definition()<CR>
@@ -55,6 +59,7 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:ale_linters= {
 \   'javascript': ['standard'],
+\   'proto': ['prototool']
 \}
 let g:ale_linters_explicit=1
 let g:ale_fixers = {'javascript': ['standard']}
