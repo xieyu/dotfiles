@@ -22,14 +22,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
 
 "markdwn preview
 Plug 'iamcco/markdown-preview.vim'
 
 " vim-slash provides a set of mappings for enhancing in-buffer search experience in Vim.
 Plug 'junegunn/vim-slash' 
-
 
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesToggle' }
 
@@ -72,16 +70,6 @@ source ~/.vim/configs/plug/fzf.vim
 source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 source ~/.vim/configs/plug/ale.vim
-colorscheme gruvbox
 
-"open plug github repo in browser by press enter
-function! s:go_github()
-    let s:repo = matchstr(expand("<cWORD>"), '\v[0-9A-Za-z\-\.]+/[0-9A-Za-z\-\.]+')
-    if empty(s:repo)
-        echo "GoGithub: No repository found."
-    else
-        let s:url = 'https://github.com/' . s:repo
-        call netrw#BrowseX(s:url, 0)
-    end
-endfunction
-autocmd FileType *vim,*zsh,*bash,*tmux nnoremap <buffer> <silent> <cr> :call <sid>go_github()<cr>
+colorscheme gruvbox
+let g:rustfmt_autosave = 1
