@@ -53,3 +53,10 @@ noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 "tnoremap <Esc> <C-\><C-n>
 
+"FZF
+nmap <leader>t :FZF<CR>
+nmap <leader>l :Lines <CR>
+nmap <leader>h :History <CR>
+nmap <leader>r :BTags<CR>
+nmap <leader>f :execute "Ag "."<C-r><C-w>"<CR>
+nmap <leader>\ :Tagbar<CR>

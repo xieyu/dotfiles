@@ -32,6 +32,6 @@ source ~/.zsh_theme 2>/dev/null
 #
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
 
-return 0
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.6/bin/:$PATH"
