@@ -8,13 +8,11 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'danro/rename.vim'
 
 " code complete and lint
-"Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-"Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"let g:deoplete#enable_at_startup = 1
+Plug 'w0rp/ale'
+"Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -70,6 +68,7 @@ source ~/.vim/configs/plug/fzf.vim
 source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 source ~/.vim/configs/plug/ale.vim
+"source ~/.vim/configs/plug/coc.vim
 
 colorscheme gruvbox
 let g:rustfmt_autosave = 1
