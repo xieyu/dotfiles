@@ -2,12 +2,10 @@
   "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
   "suggest.noselect": false,
-  "suggest.detailField":"abbr",
+  "suggest.detailField": "abbr",
   "suggest.preferCompleteThanJumpPlaceholder": true,
-  "suggest.snippetIndicator": "🌟",
   "suggest.triggerCompletionWait": 50,
-  "diagnostic.errorSign": "🐉",
-  "diagnostic.warningSign": "🐬",
+  "suggest.snippetIndicator": "~",
   "languageserver": {
     "golang": {
       "command": "go-langserver",
@@ -33,3 +31,4 @@
       "ignoredRootPaths": ["~"]
     }
   }
+}

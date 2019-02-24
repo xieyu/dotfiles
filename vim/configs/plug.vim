@@ -8,8 +8,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'danro/rename.vim'
 
 " code complete and lint
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-Plug 'w0rp/ale'
+"Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+"Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 
