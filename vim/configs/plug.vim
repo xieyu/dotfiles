@@ -8,11 +8,12 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'danro/rename.vim'
 
 " code complete and lint
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
+Plug 'liuchengxu/vista.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -60,6 +61,10 @@ Plug 'fatih/vim-go'
 Plug 'mhinz/vim-signify' 
 Plug 'tpope/vim-fugitive'
 
+" logcat
+Plug 'embear/vim-foldsearch'
+Plug 'andreshazard/vim-logreview'
+
 call plug#end()
 
 " plugin configs
@@ -72,3 +77,4 @@ source ~/.vim/configs/plug/ale.vim
 
 colorscheme gruvbox
 let g:rustfmt_autosave = 1
+let g:bookmark_save_per_working_dir=1
