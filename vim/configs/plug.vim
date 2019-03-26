@@ -33,7 +33,6 @@ Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesToggle' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
 
 
 " colorscheme"
@@ -47,7 +46,6 @@ Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml',                 {'for': 'yaml'}
 Plug 'andrewstuart/vim-kubernetes',      {'for': 'yaml'}
 Plug 'ekalinin/Dockerfile.vim',          {'for': 'dockerfile'}
-Plug 'tmux-plugins/vim-tmux',            {'for': 'tmux' }
 Plug 'plasticboy/vim-markdown',          {'for': 'markdown'}
 Plug 'elzr/vim-json',                    {'for': 'json'}
 Plug 'ap/vim-css-color',                 {'for': 'css'}
@@ -64,6 +62,9 @@ Plug 'tpope/vim-fugitive'
 " logcat
 Plug 'embear/vim-foldsearch'
 Plug 'andreshazard/vim-logreview'
+
+Plug 'xieyu/vim-codenote'
+"Plug 'jacobsimpson/nvim-example-python-plugin'
 
 call plug#end()
 
