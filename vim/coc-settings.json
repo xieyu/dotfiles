@@ -30,5 +30,6 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     }
-  }
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["rust"]
 }
