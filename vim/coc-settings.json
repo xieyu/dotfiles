@@ -31,5 +31,5 @@
       "ignoredRootPaths": ["~"]
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": ["rust"]
+  "rust-client.channel": "nightly"
 }
