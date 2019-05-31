@@ -7,13 +7,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'danro/rename.vim'
 
-" code complete and lint
-"Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-"Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"let g:deoplete#enable_at_startup = 1
-"Plug 'liuchengxu/vista.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -38,6 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 " colorscheme"
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 
 " improve indent and syntax hightlight for these filetypes
 Plug 'uarun/vim-protobuf'
@@ -54,28 +49,22 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'derekwyatt/vim-scala'
 Plug 'fatih/vim-go'
 
-
 " git
 Plug 'mhinz/vim-signify' 
 Plug 'tpope/vim-fugitive'
 
-" logcat
-Plug 'embear/vim-foldsearch'
-Plug 'andreshazard/vim-logreview'
-
 Plug 'xieyu/vim-codenote'
-"Plug 'jacobsimpson/nvim-example-python-plugin'
-
+Plug 'xieyu/vim-cd'
 call plug#end()
+
 
 " plugin configs
 "source ~/.vim/configs/plug/language-client.vim
 source ~/.vim/configs/plug/fzf.vim
 source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
-"source ~/.vim/configs/plug/ale.vim
-source ~/.vim/configs/plug/coc.vim
 
+source ~/.vim/configs/plug/coc.vim
 colorscheme gruvbox
+"colorscheme onedark
 let g:rustfmt_autosave = 1
-"let g:bookmark_save_per_working_dir=1
