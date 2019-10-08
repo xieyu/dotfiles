@@ -1,0 +1,33 @@
+
+snippet beg "begin{} / end{}" bA
+\\begin{$1}
+	$0
+\\end{$1}
+endsnippet
+
+snippet subgraph 
+	subgraph cluster_${1:title} {
+		label="${1}";
+		fontsize=20;
+		style=rounded;
+	}
+
+snippet y_digraph
+	digraph ${1:title} {
+		node[shape=box];
+		newrank=true;
+		rankdir=LR;
+	}
+
+snippet record
+	${1:record}[
+		shape="record";
+		label="{
+			{$1}|
+			{$2:field} \l
+		}"
+	]
+
+snippet today "Date"
+`date +%F`
+endsnippet

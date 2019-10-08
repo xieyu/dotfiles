@@ -4,6 +4,7 @@ filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
+
 set autoread
 set ffs=unix,dos,mac
 
@@ -34,7 +35,6 @@ set title
 
 set novisualbell
 set noerrorbells
-
 set mouse=a
 
 " status bar
@@ -42,11 +42,6 @@ set ruler
 set showmode
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 set laststatus=2
-
-
-hi! link SignColumn   LineNr
-hi! link ShowMarksHLl DiffAdd
-hi! link ShowMarksHLu DiffChange
 
 " tab
 set tabstop=2
@@ -64,17 +59,25 @@ au InsertLeave * set nopaste
 set autoread
 set backspace=indent,eol,start
 
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 "set clipboard=unnamed
 
 autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html 
 hi pythonSelf ctermfg=174 guifg=#6094DB cterm=bold gui=bold
 
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType python setlocal ts=2 sts=2 sw=2 expandtab
 
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+
+"fzf settings
 set rtp+=/usr/local/opt/fzf
 
 set background=dark
 set t_Co=256
+
+hi! link SignColumn   LineNr
+hi! link ShowMarksHLl DiffAdd
+hi! link ShowMarksHLu DiffChange
+
+autocmd BufNewFile,BufReadPost *.mmd,*.mermaid set filetype=mermaid

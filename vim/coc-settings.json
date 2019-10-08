@@ -6,6 +6,8 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerCompletionWait": 50,
   "suggest.snippetIndicator": "~",
+  "diagnostic.errorSign": "😱",
+  "diagnostic.warningSign": "😂",
   "languageserver": {
     "golang": {
       "command": "go-langserver",
@@ -31,5 +33,9 @@
       "ignoredRootPaths": ["~"]
     }
   },
-  "rust-client.channel": "nightly"
+  "rust-client.channel": "nightly",
+  "snippets.userSnippetsDirectory": "~/.vim/snippets",
+  "snippets.ultisnips.directories": [
+    "~/.vim/snippets"
+  ]
 }

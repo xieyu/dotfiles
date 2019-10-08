@@ -8,4 +8,5 @@ function! s:go_github()
         call netrw#BrowseX(s:url, 0)
     end
 endfunction
+
 autocmd FileType *vim,*zsh,*bash,*tmux nnoremap <buffer> <silent> <cr> :call <sid>go_github()<cr>

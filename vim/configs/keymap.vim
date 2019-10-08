@@ -40,27 +40,13 @@ nnoremap <silent> g* g*zz
 nmap Y "+y
 nmap P "+p
 
-"tab 
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-"tnoremap <Esc> <C-\><C-n>
-
 "FZF
 nmap <leader>t :FZF<CR>
 nmap <leader>l :Lines <CR>
 nmap <leader>h :History <CR>
 nmap <leader>r :BTags<CR>
 nmap <leader>f :execute "Rg "."<C-r><C-w>"<CR>
-nmap <leader>\ :Tagbar<CR>
+nmap <leader>p :Wd<CR>
 
 "nerdtre
 nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>p :Wd<CR>
