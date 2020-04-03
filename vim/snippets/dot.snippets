@@ -1,13 +1,13 @@
 snippet subgraph 
 subgraph cluster_${1:title} {
-	graph[label="${1}";fontsize=20;style=rounded]
+	graph[label="${1}";fontsize=20;];
 	$0
 }
 endsnippet
 
 snippet y_digraph
 digraph ${1:title} {
-	node[shape=box;style="rounded"];
+	node[shape=box];
 	newrank=true;
 	rankdir=LR;
 	${0:a->b}
@@ -19,11 +19,151 @@ style="filled"
 endsnippet
 
 snippet record
-${1:record}[
-	shape="record";
-	label="{
+${1:record}[shape="record";
+	label="{{
 		${1}|
-		${2:field} \l
-	}";
-]
+			${2:field} \l
+	}}";
+];
 endsnippet
+
+snippet redrecord
+${1:record}[shape="record";
+	fillcolor="#f38181";
+	style=filled;
+	label="{{
+		${1}|
+			${2:field} \l
+	}}";
+];
+endsnippet
+
+snippet tearecord
+${1:record}[shape="record";
+	fillcolor="#95e1d3"
+	style=filled;
+	label="{{
+		${1}|
+			${2:field} \l
+	}}";
+];
+endsnippet
+
+snippet linkgraydash
+${1} -> ${2}[style=dashed;color=gray;];
+endsnippet
+
+snippet linklabel "a->b[label=xx]" b
+${1} -> ${2}[label="${3}"];
+endsnippet
+
+snippet link "a->b[label=xx]" b
+${1} -> ${2};
+endsnippet
+
+snippet mlink "a->{}" b
+${1} -> {
+	${2}
+};
+endsnippet
+
+snippet redbox "red double cycle" b
+${1:title}[
+	fillcolor="#f38181";
+	style=filled;
+	shape=box;
+	label="${1}"
+];
+endsnippet
+
+snippet nodelabel "node[label=node]" b
+${1}[label="${1}"];
+endsnippet
+
+snippet red2c "red double cycle" b
+${1:title}[
+	fillcolor="#f38181";
+	style=filled;
+	shape=doublecircle;
+	label="${1}"
+];
+endsnippet
+
+snippet teabox3d "tea box 3d" b
+${1:title}[
+	fillcolor="#95e1d3"
+	style=filled;
+	shape=box3d;
+	label="${1}"
+];
+endsnippet
+
+snippet linklabel "a->b[label=xx]" b
+${1} -> ${2}[label="${3}"];
+endsnippet
+
+snippet link "a->b[label=xx]" b
+${1} -> ${2};
+endsnippet
+
+snippet mlink "a->{}" b
+${1} -> {
+	${2}
+};
+endsnippet
+
+snippet redbox "red double cycle" b
+${1:title}[
+	fillcolor="#f38181";
+	style=filled;
+	shape=box;
+	label="${1}"
+];
+endsnippet
+
+snippet nodelabel "node[label=node]" b
+${1}[label="${1}"];
+endsnippet
+
+snippet red2c "red double cycle" b
+${1:title}[
+	fillcolor="#f38181";
+	style=filled;
+	shape=doublecircle;
+	label="${1}"
+];
+endsnippet
+
+snippet teabox3d "tea box 3d" b
+${1:title}[
+	fillcolor="#95e1d3"
+	style=filled;
+	shape=box3d;
+	label="${1}"
+];
+endsnippet
+
+snippet color_red "red color"b
+[color="#b83b5e"]
+endsnippet
+
+snippet color_dark_red "dark red" b
+[color="#e84545"]
+endsnippet
+
+snippet color_tea "tea color" b
+[color="#3fc1c9"]
+endsnippet
+
+snippet  color_orange "orange" b
+[color="#f08a5d"]
+endsnippet
+
+snippet color_blue "blue" b
+[color="#3f72af"]
+endsnippet
+
+snippet  color_green "Green" b
+[color="#17b978"];
+endsnippet
+

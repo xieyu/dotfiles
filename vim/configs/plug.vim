@@ -60,6 +60,13 @@ Plug 'xieyu/vim-codenote'
 Plug 'xieyu/vim-cd'
 
 Plug 'wannesm/wmgraphviz.vim'
+Plug 'nickhutchinson/vim-systemtap'
+
+Plug 'liuchengxu/vim-clap'
+Plug 'florentc/vim-tla'
+Plug 'ianding1/leetcode.vim'
+
+set conceallevel=2
 
 call plug#end()
 
