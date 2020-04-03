@@ -41,12 +41,14 @@ nmap Y "+y
 nmap P "+p
 
 "FZF
-nmap <leader>t :FZF<CR>
 nmap <leader>l :Lines <CR>
 nmap <leader>h :History <CR>
-nmap <leader>r :BTags<CR>
 nmap <leader>f :execute "Rg "."<C-r><C-w>"<CR>
 nmap <leader>p :Wd<CR>
+
+"leaderf
+nmap <m-f> :LeaderfFunction<CR>
+nmap <leader>t :Leaderf file<CR>
 
 "nerdtre
 nmap <leader>n :NERDTreeToggle<CR>

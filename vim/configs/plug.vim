@@ -59,12 +59,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'xieyu/vim-codenote'
 Plug 'xieyu/vim-cd'
 
+"grpahviz
 Plug 'wannesm/wmgraphviz.vim'
+let g:mkdp_auto_close = 0
+let g:WMGraphviz_output="svg"
+abbre gs GraphvizShow
+abbre gc GraphvizCompile
+
 Plug 'nickhutchinson/vim-systemtap'
 
 Plug 'liuchengxu/vim-clap'
 Plug 'florentc/vim-tla'
-Plug 'ianding1/leetcode.vim'
+
+"auto generate tags
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'Yggdroot/LeaderF'
+
 
 set conceallevel=2
 
@@ -72,11 +82,11 @@ call plug#end()
 
 
 " plugin configs
-"source ~/.vim/configs/plug/language-client.vim
 source ~/.vim/configs/plug/fzf.vim
 source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 source ~/.vim/configs/plug/coc.vim
+source ~/.vim/configs/plug/gtags.vim
 
 colorscheme gruvbox
 "colorscheme onedark
@@ -86,7 +96,3 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
-let g:mkdp_auto_close = 0
-let g:WMGraphviz_output="svg"
-abbre gs GraphvizShow
-abbre gc GraphvizCompile
