@@ -72,7 +72,7 @@ Plug 'liuchengxu/vim-clap'
 Plug 'florentc/vim-tla'
 
 "auto generate tags
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'Yggdroot/LeaderF'
 
 
@@ -86,7 +86,7 @@ source ~/.vim/configs/plug/fzf.vim
 source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 source ~/.vim/configs/plug/coc.vim
-source ~/.vim/configs/plug/gtags.vim
+source ~/.vim/configs/plug/leaderf.vim
 
 colorscheme gruvbox
 "colorscheme onedark
