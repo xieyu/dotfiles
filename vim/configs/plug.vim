@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 "code complete, snip
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 source ~/.vim/configs/plug/coc.vim
+" snippets
+Plug 'honza/vim-snippets'
+
 Plug 'fatih/vim-go'
 
 

@@ -1,0 +1,59 @@
+snippet gpri "gprint!"
+	gprint!("${1}")
+
+snippet gd_class_register "register to gdnative classbuilder"
+	fn $1(builder: &gdnative::init::ClassBuilder<$2>) {
+		$3
+	}
+
+snippet gd_struct "godot struct"
+	#[derive(gdnative::NativeClass)]
+	#[inherit(gdnative::${2:Node2D})]
+	pub struct $1{
+	}
+
+snippet gd_rstruct "godot struct with register fn"
+	#[derive(gdnative::NativeClass)]
+	#[inherit(gdnative::${2:Node2D})]
+	#[register_with(${3:gd_register})]
+	pub struct $1{
+	}
+
+	fn gd_register(builder: &gdnative::init::ClassBuilder<$1>) {
+	}
+
+snippet gd_impl "impl godot struct"
+	#[gdnative::methods]
+	impl $2 {
+	    fn _init(_owner: gdnative::${1:Node2D}) -> Self {
+	        $2{
+	        }
+	    }
+	    #[export]
+	    fn _ready(&mut self, owner: gdnative::$1) {
+	    }
+
+	    #[export]
+	    fn _process(&mut self, mut _owner: gdnative::$1, _delta: f64) {
+	    }
+	}
+
+snippet gd_body_entered "on body entered"
+	#[export]
+	fn on_$1_body_entered(&mut self, mut owner: gdnative::Node2D, mut other: gdnative::Node) {
+		$2
+	}
+
+snippet gd_add_signal "add signal for builder"
+	builder.add_signal(gdnative::init::Signal{
+		name: "${1}",
+		args: "${2:&[]}"
+	})
+
+snippet gd_signal_argument "gd singal argument"
+	gdnative::init::SignalArgument{
+		name: "$1",
+		default: gdnative::Variant::from_$2(100),
+		export_info: gdnative::init::ExportInfo::new(gdnative::VariantType::$3),
+		usage: gdnative::init::PropertyUsage::DEFAULT,
+	}
