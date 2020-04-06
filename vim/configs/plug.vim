@@ -56,8 +56,9 @@ Plug 'fatih/vim-go'
 Plug 'mhinz/vim-signify' 
 Plug 'tpope/vim-fugitive'
 
-Plug 'xieyu/vim-codenote'
+"Plug 'xieyu/vim-codenote'
 Plug 'xieyu/vim-cd'
+Plug 'dense-analysis/ale'
 
 "grpahviz
 Plug 'wannesm/wmgraphviz.vim'
@@ -87,6 +88,7 @@ source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 source ~/.vim/configs/plug/coc.vim
 source ~/.vim/configs/plug/leaderf.vim
+source ~/.vim/configs/plug/clap.vim
 
 colorscheme gruvbox
 "colorscheme onedark
