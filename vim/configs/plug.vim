@@ -35,6 +35,7 @@ source ~/.vim/configs/plug/leaderf.vim
 
 
 Plug 'junegunn/vim-easy-align'
+Plug 'lfv89/vim-interestingwords'
 
 "color theme
 Plug 'joshdick/onedark.vim'
