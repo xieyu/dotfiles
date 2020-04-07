@@ -8,17 +8,18 @@ source ~/.vim/configs/plug/coc.vim
 " snippets
 Plug 'honza/vim-snippets'
 
-Plug 'fatih/vim-go'
-
-
 "code lint
 Plug 'dense-analysis/ale'
+
+"build system
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
+let g:asyncrun_open = 6
 
 
 "utils
 Plug 'scrooloose/nerdtree'
 Plug 'danro/rename.vim'
-
 
 "fuzzy jump and search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -33,14 +34,12 @@ source ~/.vim/configs/plug/clap.vim
 Plug 'Yggdroot/LeaderF'
 source ~/.vim/configs/plug/leaderf.vim
 
-
 Plug 'junegunn/vim-easy-align'
 Plug 'lfv89/vim-interestingwords'
 
 "color theme
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
-
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
@@ -49,9 +48,12 @@ source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 
 
-" improve indent and syntax hightlight for these filetypes
+"rust
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/rust-doc.vim'
+
+"go
+Plug 'fatih/vim-go'
 
 Plug 'uarun/vim-protobuf'
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
