@@ -82,6 +82,8 @@ Plug 'liuchengxu/graphviz.vim'
 let g:graphviz_output_format = 'svg'
 autocmd Filetype dot nnoremap <leader>c :GraphvizCompile svg<CR>
 autocmd Filetype dot nnoremap <leader>r :Graphviz svg<CR>
+"auto compile when save 
+autocmd BufWritePost *.dot GraphvizCompile
 
 set conceallevel=2
 
