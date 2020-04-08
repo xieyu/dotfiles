@@ -1,5 +1,5 @@
 snippet gpri "gprint!"
-	gprint!("${1}")
+	godot_print!("${1}")
 
 snippet gd_class_register "register to gdnative classbuilder"
 	fn $1(builder: &gdnative::init::ClassBuilder<$2>) {
@@ -44,6 +44,19 @@ snippet gd_body_entered "on body entered"
 		$2
 	}
 
+snippet gd_on_button_pressed "on button pressed"
+	#[export]
+	fn on_$1_button_pressed(&mut self, mut owner: gdnative::${2:Node2D}) {
+			$3
+	}
+
+snippet gd_on_timer_timeout "on timer timou"
+	#[export]
+	fn on_$1_timer_timeout(&mut self, mut owner: gdnative::${2:Node2D}) {
+			$3
+	}
+
+
 snippet gd_add_signal "add signal for builder"
 	builder.add_signal(gdnative::init::Signal{
 		name: "${1}",
@@ -57,3 +70,9 @@ snippet gd_signal_argument "gd singal argument"
 		export_info: gdnative::init::ExportInfo::new(gdnative::VariantType::$3),
 		usage: gdnative::init::PropertyUsage::DEFAULT,
 	}
+
+snippet gd_get_node "get node with type"
+	${1:owner}.get_node(gdnative::NodePath::from_str("$2"))
+	.expect("Missing $2")
+	.cast::<gdnative::$3>()
+	.expect("Unable to cast to $3");

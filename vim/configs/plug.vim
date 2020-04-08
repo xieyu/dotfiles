@@ -51,6 +51,8 @@ source ~/.vim/configs/plug/devicons.vim
 
 " improve indent and syntax hightlight for these filetypes
 Plug 'rust-lang/rust.vim'
+Plug 'rhysd/rust-doc.vim'
+
 Plug 'uarun/vim-protobuf'
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 Plug 'cespare/vim-toml'

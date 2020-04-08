@@ -26,7 +26,6 @@
     }
   },
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
-  "rust-client.logToFile": true,
   "rust-client.channel": "nightly-2020-03-19",
   "rust-client.trace.server":"verbose",
   "snippets.userSnippetsDirectory": "~/.vim/snippets",
