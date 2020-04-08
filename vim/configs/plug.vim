@@ -78,11 +78,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'xieyu/vim-cd'
 
 "grpahviz
-Plug 'wannesm/wmgraphviz.vim'
-let g:mkdp_auto_close = 0
-let g:WMGraphviz_output="svg"
-abbre gs GraphvizShow
-abbre gc GraphvizCompile
+Plug 'liuchengxu/graphviz.vim'
+let g:graphviz_output_format = 'svg'
+autocmd Filetype dot nnoremap <leader>c :GraphvizCompile svg<CR>
+autocmd Filetype dot nnoremap <leader>r :Graphviz svg<CR>
 
 set conceallevel=2
 
