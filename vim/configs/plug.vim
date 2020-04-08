@@ -34,19 +34,20 @@ source ~/.vim/configs/plug/clap.vim
 Plug 'Yggdroot/LeaderF'
 source ~/.vim/configs/plug/leaderf.vim
 
+
 Plug 'junegunn/vim-easy-align'
 Plug 'lfv89/vim-interestingwords'
 
 "color theme
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
+Plug 'liuchengxu/space-vim-theme'
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-source ~/.vim/configs/plug/airline.vim
 source ~/.vim/configs/plug/devicons.vim
 
+"statusbar
+Plug 'liuchengxu/eleline.vim'
 
 "rust
 Plug 'rust-lang/rust.vim'
@@ -74,7 +75,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'mhinz/vim-signify' 
 Plug 'tpope/vim-fugitive'
 
-"Plug 'xieyu/vim-codenote'
 Plug 'xieyu/vim-cd'
 
 "grpahviz
