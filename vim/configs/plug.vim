@@ -26,14 +26,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 source ~/.vim/configs/plug/fzf.vim
 
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
+
 "fuzzy seach with floating window
 Plug 'liuchengxu/vim-clap'
+let g:clap_layout = {'relative': 'editor'}
+let g:clap_disable_run_rooter=v:true
+let g:clap_theme = 'material_design_dark'
 source ~/.vim/configs/plug/clap.vim
-
-"fuzzy search with gtags and function search
-Plug 'Yggdroot/LeaderF'
-source ~/.vim/configs/plug/leaderf.vim
-
 
 Plug 'junegunn/vim-easy-align'
 Plug 'lfv89/vim-interestingwords'
@@ -52,6 +53,12 @@ Plug 'liuchengxu/eleline.vim'
 "rust
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/rust-doc.vim'
+let g:rust_doc#define_map_K = 0
+augroup vimrc-rust
+    autocmd!
+    autocmd FileType rust nnoremap <buffer><silent>K :<C-u>DeniteCursorWord rust/doc<CR>
+augroup END
+
 
 "go
 Plug 'fatih/vim-go'

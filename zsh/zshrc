@@ -39,6 +39,8 @@ export PATH="/usr/local/opt/mongodb@3.6/bin/:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/codes/hobot/ph/arcanist/bin/:$PATH"
-export GOROOT="/usr/local/go"
+
+#export GOROOT="/usr/local/opt/go"
 export GO11MODULE=on
-export PATH="$GOROOT/bin:$PATH"
+unset GOROOT
+export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
