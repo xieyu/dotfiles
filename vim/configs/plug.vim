@@ -16,6 +16,7 @@ Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 
+Plug 'Yggdroot/indentLine'
 
 "utils
 Plug 'scrooloose/nerdtree'
@@ -48,7 +49,7 @@ Plug 'ryanoasis/vim-devicons'
 source ~/.vim/configs/plug/devicons.vim
 
 "statusbar
-Plug 'liuchengxu/eleline.vim'
+"Plug 'liuchengxu/eleline.vim'
 
 "rust
 Plug 'rust-lang/rust.vim'

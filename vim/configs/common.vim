@@ -67,9 +67,10 @@ hi pythonSelf ctermfg=174 guifg=#6094DB cterm=bold gui=bold
 
 
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 "fzf settings
 set rtp+=/usr/local/opt/fzf
 
