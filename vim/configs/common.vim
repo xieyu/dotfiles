@@ -5,6 +5,8 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
+set re=1
+
 set autoread
 set ffs=unix,dos,mac
 

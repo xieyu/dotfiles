@@ -39,6 +39,7 @@ export PATH="/usr/local/opt/mongodb@3.6/bin/:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/codes/hobot/ph/arcanist/bin/:$PATH"
+export PATH="/opt/bin:$PATH"
 
 #export GOROOT="/usr/local/opt/go"
 export GO11MODULE=on
@@ -53,3 +54,5 @@ if [ -f '/Users/yu.xie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yu.xie/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yu.xie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yu.xie/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias task="asynctask -f"

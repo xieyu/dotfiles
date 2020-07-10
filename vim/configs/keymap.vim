@@ -41,11 +41,11 @@ nmap Y "+y
 nmap P "+p
 
 "FZF
-nmap <leader>h :Clap history<CR>
+nmap <leader>h :History<CR>
 nmap <leader>f :execute "Rg "."<C-r><C-w>"<CR>
+nmap <leader>l :Lines<CR>
 nmap <leader>p :Wd<CR>
-nmap <leader>t :Clap files<CR>
-nmap <leader>l :Clap blines<CR>
+nmap <leader>t :Files<CR>
 
 
 "nerdtre

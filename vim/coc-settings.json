@@ -55,7 +55,7 @@
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "rust-client.channel": "nightly",
   "rust-client.trace.server":"verbose",
-  "rust-client.logToFile": true,
+  "rust-client.logToFile": false,
   "snippets.userSnippetsDirectory": "~/.vim/snippets",
   "snippets.ultisnips.directories": [
     "~/.vim/snippets"

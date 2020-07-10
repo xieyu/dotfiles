@@ -17,6 +17,15 @@ Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 
 Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_Gtagslabel = 'native-pygments'
+noremap gd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap gr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap go :<C-U><C-R>=printf("Leaderf! gtags -recall %s", "")<CR><CR>
+
+
 
 "utils
 Plug 'scrooloose/nerdtree'
@@ -28,7 +37,7 @@ Plug 'junegunn/fzf.vim'
 source ~/.vim/configs/plug/fzf.vim
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-
+Plug 'rhysd/git-messenger.vim'
 
 "fuzzy seach with floating window
 Plug 'liuchengxu/vim-clap'
@@ -77,10 +86,48 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'derekwyatt/vim-scala'
 Plug 'nickhutchinson/vim-systemtap'
 Plug 'florentc/vim-tla'
+
+" markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'ferrine/md-img-paste.vim' 
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
+
+
+
+"设置默认储存文件夹。这里表示储存在当前文档所在文件夹下的'images'文件夹下，相当于 ./images/
+let g:mdip_imgdir = 'images' 
+"设置默认图片名称。当图片名称没有给出时，使用默认图片名称
+let g:mdip_imgname = 'image'
+"设置快捷键，个人喜欢 Ctrl+p 的方式，比较直观
+autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
+Plug 'majutsushi/tagbar'
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:headings',
+        \ 'l:links',
+        \ 'i:images'
+    \ ]
+\ }
+
+let g:tagbar_type_dot= {
+    \ 'ctagstype' : 'dot',
+    \ 'kinds' : [
+        \ 's:subgraphs',
+        \ 'a:start',
+        \ 'r:record',
+    \ ]
+\ }
+
 
 " git
-Plug 'mhinz/vim-signify' 
+"Plug 'mhinz/vim-signify' 
 Plug 'tpope/vim-fugitive'
 
 Plug 'xieyu/vim-cd'

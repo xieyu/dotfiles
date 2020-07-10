@@ -612,3 +612,50 @@ spec:
     name: memory
       targetAverageValue: 1000Mi
 endsnippet
+
+snippet kustomize "kustomize" b
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ${2:default}
+
+commonLabels:
+	app: ${1:app}
+
+configMapGenerator:
+- name: ${1:app}-conf
+	files:
+		- application.properties
+endsnippet
+
+snippet  overlay_deployment "overlay deployment for config volume" b
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${1:app}
+  namespace: default
+spec:
+  template:
+    spec:
+      volumes:
+          - name: config-volume
+            configMap:
+              name: ${1:app}-conf
+endsnippet
+
+snippet overlay_kustomize "description"
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../../base
+
+configMapGenerator:
+- name: ${1:app}-conf
+  files:
+    - ${2:./config.toml}
+
+patchesStrategicMerge:
+  - deployment.yaml
+endsnippet
+  
