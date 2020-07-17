@@ -20,11 +20,21 @@ Plug 'Yggdroot/indentLine'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 let g:Lf_GtagsAutoGenerate = 1
-let g:Lf_Gtagslabel = 'native-pygments'
+"let g:Lf_Gtagslabel = 'native-pygments'
 noremap gd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap gr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 noremap go :<C-U><C-R>=printf("Leaderf! gtags -recall %s", "")<CR><CR>
 
+
+Plug 'ivanov/vim-ipython'
+Plug 'bfredl/nvim-ipy'
+
+command! -nargs=0 RunQtConsole call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True --style=monokai")
+let g:ipy_celldef = '^##' " regex for cell start and end
+nmap <silent> <leader>jqt :RunQtConsole<Enter>
+nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
+nmap <silent> <leader>jc <Plug>(IPy-RunCell)
+nmap <silent> <leader>ja <Plug>(IPy-RunAll)
 
 
 "utils
