@@ -61,6 +61,8 @@ au InsertLeave * set nopaste
 set autoread
 set backspace=indent,eol,start
 
+set scl=auto
+
 
 "set clipboard=unnamed
 
@@ -84,3 +86,16 @@ hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
 
 autocmd BufNewFile,BufReadPost *.mmd,*.mermaid set filetype=mermaid
+
+nnoremap <Leader>2 :call ToggleSignColumn()<CR>
+
+" Toggle signcolumn. Works only on vim>=8.0 or NeoVim
+function! ToggleSignColumn()
+    if !exists("b:signcolumn_on") || b:signcolumn_on
+        set signcolumn=no
+        let b:signcolumn_on=0
+    else
+        set signcolumn=auto
+        let b:signcolumn_on=1
+    endif
+endfunction

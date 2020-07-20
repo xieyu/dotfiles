@@ -116,6 +116,7 @@ let g:mdip_imgdir = 'images'
 let g:mdip_imgname = 'image'
 "设置快捷键，个人喜欢 Ctrl+p 的方式，比较直观
 autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
+
 Plug 'majutsushi/tagbar'
 let g:tagbar_type_markdown = {
     \ 'ctagstype' : 'markdown',
