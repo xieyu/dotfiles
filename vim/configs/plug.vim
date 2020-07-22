@@ -17,13 +17,13 @@ Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 
 Plug 'Yggdroot/indentLine'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
-let g:Lf_GtagsAutoGenerate = 1
+"let g:Lf_GtagsAutoGenerate = 1
 "let g:Lf_Gtagslabel = 'native-pygments'
-noremap gd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap gr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap go :<C-U><C-R>=printf("Leaderf! gtags -recall %s", "")<CR><CR>
+"noremap gd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+"noremap gr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+"noremap go :<C-U><C-R>=printf("Leaderf! gtags -recall %s", "")<CR><CR>
 
 
 Plug 'ivanov/vim-ipython'
@@ -140,6 +140,7 @@ let g:tagbar_type_dot= {
 " git
 "Plug 'mhinz/vim-signify' 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 Plug 'xieyu/vim-cd'
 

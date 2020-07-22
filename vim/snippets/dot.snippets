@@ -22,22 +22,28 @@ style="filled"
 endsnippet
 
 snippet htmlTable "HTML like label: table"
-${1:html}[shape=none, border=none, label=<
-	<table title="$1" border="0" cellborder="1" cellspacing="0" cellpadding="1">
-	<tr>
-		<td>$2</td>
-	</tr>
-	</table>
->];
+${1:html}[
+	shape=none,
+	border=none,
+	label=<<table title="$1" border="0" cellborder="1" cellspacing="0" cellpadding="1">
+		<tr><td bgcolor="silver"><b>$1</b></td></tr>
+	</table>>];
 endsnippet
 
-snippet trtd "description"
+snippet trtd "tr td"
 <tr><td>$1</td></tr>
 endsnippet
 
 snippet trtd_gray "tr with gray font color"
-<tr><td><font color="gray">$1</font></td></tr>
+<tr><td><font color="gray">
+	$1
+</font></td></tr>
 endsnippet
+
+snippet tr "tr"
+<tr>$1</tr>
+endsnippet
+	
 	
 
 snippet tr1td "tr in table"

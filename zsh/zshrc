@@ -1,58 +1,52 @@
-#!/usr/bin/env zsh
-#=============================================================================
-#       Author: Wenxuan Zhang
-#        Email: wenxuangm@gmail.com
-#     HomePage: wenxuan.info
-#=============================================================================
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="robbyrussell"
 
-# Put this line on top to make keybinds work
-bindkey -e
+plugins=(zsh-autosuggestions)
+#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-source ~/.fzf.zsh       2>/dev/null
-source ~/.zsh_fzf_extra 2>/dev/null
-source ~/.zsh_local     2>/dev/null
-source ~/.zsh_secret    2>/dev/null
+source $ZSH/oh-my-zsh.sh
 
-source ~/.zsh_plug
-source ~/.zsh_keybinds
-source ~/.zsh_misc
-source ~/.zsh_aliases
-source ~/.zsh_custom
-source ~/.zsh_docker
+# 防止重复的history
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+setopt inc_append_history
+setopt share_history
 
-source ~/.zsh_theme 2>/dev/null
-(( $+commands[thefuck] )) && source <(thefuck --alias 2>/dev/null)
-(( $+commands[kubectl] )) && source <(kubectl completion zsh)
-(( $+commands[pyenv]   )) && source <(pyenv init -)
-#(( $+commands[fasd] ))    && source <(fasd --init auto)
-#(( $+commands[pip] ))     && source <(pip completion --zsh)  # Too slow!
+# Fzf history Ctrl+R 快捷键
+source /usr/local/opt/fzf/shell/key-bindings.zsh
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#source ~/.sdkman/bin/sdkman-init.sh 2>/dev/null
-#
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
+
+# 环境变量, Path相关配置
+export http_proxy=127.0.0.1:1087
+export https_proxy=127.0.0.1:1087
 export JAVA_HOME=/usr/lib/jvm/default-java
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/opt/mongodb@3.6/bin/:$PATH"
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/codes/hobot/ph/arcanist/bin/:$PATH"
 export PATH="/opt/bin:$PATH"
 
-#export GOROOT="/usr/local/opt/go"
 export GO11MODULE=on
 unset GOROOT
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
-
 # ANDROID
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+alias task="asynctask -f"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH=$PYENV_ROOT/shims:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yu.xie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yu.xie/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/t/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/t/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/yu.xie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yu.xie/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/opt/t/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/t/google-cloud-sdk/completion.zsh.inc'; fi
 
-alias task="asynctask -f"
