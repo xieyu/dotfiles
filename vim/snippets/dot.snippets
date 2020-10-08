@@ -5,7 +5,7 @@ subgraph cluster_${1:title} {
 }
 endsnippet
 
-snippet digraph
+snippet y_digraph
 digraph ${1:title} {
 	node[shape=box];
 	edge[color=gray40];
@@ -258,4 +258,23 @@ endsnippet
 
 snippet  color_green "Green"
 [color="#17b978"];
+endsnippet
+
+snippet tea_node_scope "tea node scope"
+node[shape="record"; fillcolor="#95e1d3" style=filled;];
+$1
+node[shape=box;style=stroke;];
+endsnippet
+
+snippet record_node_scope "record node scope"
+node[shape="record";];
+$1
+node[shape=box;style=stroke;];
+endsnippet
+
+snippet label_node "label" b
+$1[label="{{
+	$1|
+}}"]
+
 endsnippet

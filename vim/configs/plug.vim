@@ -2,10 +2,8 @@
 
 call plug#begin('~/.vim/plugged')
 
-"code complete, snip
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 source ~/.vim/configs/plug/coc.vim
-" snippets
 Plug 'honza/vim-snippets'
 
 "code lint
@@ -17,25 +15,7 @@ Plug 'skywind3000/asyncrun.vim'
 let g:asyncrun_open = 6
 
 Plug 'Yggdroot/indentLine'
-"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-
-"let g:Lf_GtagsAutoGenerate = 1
-"let g:Lf_Gtagslabel = 'native-pygments'
-"noremap gd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-"noremap gr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-"noremap go :<C-U><C-R>=printf("Leaderf! gtags -recall %s", "")<CR><CR>
-
-
-Plug 'ivanov/vim-ipython'
-Plug 'bfredl/nvim-ipy'
-
-command! -nargs=0 RunQtConsole call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True --style=monokai")
-let g:ipy_celldef = '^##' " regex for cell start and end
-nmap <silent> <leader>jqt :RunQtConsole<Enter>
-nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
-nmap <silent> <leader>jc <Plug>(IPy-RunCell)
-nmap <silent> <leader>ja <Plug>(IPy-RunAll)
-
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 "utils
 Plug 'scrooloose/nerdtree'
@@ -44,17 +24,11 @@ Plug 'danro/rename.vim'
 "fuzzy jump and search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 source ~/.vim/configs/plug/fzf.vim
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rhysd/git-messenger.vim'
-
-"fuzzy seach with floating window
-Plug 'liuchengxu/vim-clap'
-let g:clap_layout = {'relative': 'editor'}
-let g:clap_disable_run_rooter=v:true
-let g:clap_theme = 'material_design_dark'
-source ~/.vim/configs/plug/clap.vim
 
 Plug 'junegunn/vim-easy-align'
 Plug 'lfv89/vim-interestingwords'
@@ -69,6 +43,7 @@ source ~/.vim/configs/plug/devicons.vim
 
 "statusbar
 "Plug 'liuchengxu/eleline.vim'
+Plug 'itchyny/lightline.vim'
 
 "rust
 Plug 'rust-lang/rust.vim'
@@ -79,9 +54,13 @@ augroup vimrc-rust
     autocmd FileType rust nnoremap <buffer><silent>K :<C-u>DeniteCursorWord rust/doc<CR>
 augroup END
 
+au BufRead,BufNewFile *.tscn setfiletype config
+au BufRead,BufNewFile *.tres setfiletype config
+au BufRead,BufNewFile *.godot setfiletype config
 
 "go
 Plug 'fatih/vim-go'
+Plug 'calviken/vim-gdscript3'
 
 Plug 'uarun/vim-protobuf'
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
@@ -106,9 +85,6 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
-
-
-
 
 "设置默认储存文件夹。这里表示储存在当前文档所在文件夹下的'images'文件夹下，相当于 ./images/
 let g:mdip_imgdir = 'images' 
@@ -136,6 +112,9 @@ let g:tagbar_type_dot= {
     \ ]
 \ }
 
+Plug 'calviken/vim-gdscript3'
+Plug 'tikhomirov/vim-glsl'
+
 
 " git
 "Plug 'mhinz/vim-signify' 
@@ -143,6 +122,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 Plug 'xieyu/vim-cd'
+Plug 'xieyu/vim-codenote'
 
 "grpahviz
 Plug 'liuchengxu/graphviz.vim'
@@ -152,6 +132,7 @@ autocmd Filetype dot nnoremap <leader>r :Graphviz svg<CR>
 "auto compile when save 
 autocmd BufWritePost *.dot GraphvizCompile
 
+set signcolumn=no
 set conceallevel=2
 
 call plug#end()

@@ -89,6 +89,7 @@ autocmd BufNewFile,BufReadPost *.mmd,*.mermaid set filetype=mermaid
 
 nnoremap <Leader>2 :call ToggleSignColumn()<CR>
 
+set signcolumn=no
 " Toggle signcolumn. Works only on vim>=8.0 or NeoVim
 function! ToggleSignColumn()
     if !exists("b:signcolumn_on") || b:signcolumn_on

@@ -6,8 +6,12 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerCompletionWait": 50,
   "suggest.snippetIndicator": "~",
-  "diagnostic.errorSign": "😱",
-  "diagnostic.warningSign": "😂",
+  "diagnostic.errorSign": "✗",
+  "diagnostic.warningSign": "∆",
+  "diagnostic.infoSign": "▸",
+  "diagnostic.hintSign": "▪︎",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": "←",
   "suggest.completionItemKindLabels": {
     "function": "\uf794 ",
     "method": "\uf6a6 ",
@@ -50,12 +54,99 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+     "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+              "cacheDirectory": ""
+            }
+      },
+  "python": {
+    "command": "python",
+    "args": [
+      "-mpyls",
+      "-vv",
+      "--log-file",
+      "/tmp/lsp_python.log"
+    ],
+    "trace.server": "verbose",
+    "filetypes": [
+      "python"
+    ],
+    "settings": {
+      "pyls": {
+        "enable": true,
+        "trace": {
+          "server": "verbose"
+        },
+        "commandPath": "",
+        "configurationSources": [
+          "pycodestyle"
+        ],
+        "plugins": {
+          "jedi_completion": {
+            "enabled": true
+          },
+          "jedi_hover": {
+            "enabled": true
+          },
+          "jedi_references": {
+            "enabled": true
+          },
+          "jedi_signature_help": {
+            "enabled": true
+          },
+          "jedi_symbols": {
+            "enabled": true,
+            "all_scopes": true
+          },
+          "mccabe": {
+            "enabled": true,
+            "threshold": 15
+          },
+          "preload": {
+            "enabled": true
+          },
+          "pycodestyle": {
+            "enabled": true
+          },
+          "pydocstyle": {
+            "enabled": false,
+            "match": "(?!test_).*\\.py",
+            "matchDir": "[^\\.].*"
+          },
+          "pyflakes": {
+            "enabled": true
+          },
+          "rope_completion": {
+            "enabled": true
+          },
+          "yapf": {
+            "enabled": true
+          }
+        }
+      }
     }
+  }
   },
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "rust-client.channel": "nightly",
   "rust-client.trace.server":"verbose",
   "rust-client.logToFile": false,
+  "rust-analyzer.updates.channel": "nightly",
   "snippets.userSnippetsDirectory": "~/.vim/snippets",
   "snippets.ultisnips.directories": [
     "~/.vim/snippets"

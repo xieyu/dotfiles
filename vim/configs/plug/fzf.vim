@@ -6,6 +6,53 @@ if executable('rg')
   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" --ignore-file tags'.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 endif
 
+
+"'^\W*def\W+.*pl.*:\w*$'
+function! RgPattern(pattern, type, query, fullscreen)
+  "let pattern = '^\W*def\W+.*%s.*:\w*$'
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --type %s %s || true'
+  let command_fmt = printf(command_fmt, shellescape(a:type), shellescape(a:pattern))
+  let initial_command = printf(command_fmt, a:query)
+  echo 'the init command is ' .initial_command
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+function! Rgf()
+  let word = expand('<cword>')
+  let _filetype = &filetype
+  echo 'Rgf worker under cursor is'.word.'file type is '_filetype
+  if _filetype == 'cpp' 
+      call RgPattern('%s\(', 'cpp', word, 0)
+  elseif _filetype == 'python'
+      call RgPattern('^\W*def\W+%s\(.*):\w*$', 'py', word, 0)
+  endif
+endfunction
+
+function! Rgc()
+  let word = expand('<cword>')
+  let _filetype = &filetype
+  if _filetype == 'cpp' 
+      call RgPattern('(struct|class|enum|using)\W+%s\b', 'cpp', word, 0)
+  endif
+endfunction
+
+nmap <leader>rf :call Rgf()<CR>
+nmap <leader>rc :call Rgc()<CR>
+
+command! -nargs=* -bang Rpd call RgPattern('^\W*def\W+.*%s.*:\w*$', 'py', <q-args>, <bang>0)
+command! -nargs=* -bang Rcf call RgPattern('%s\(', 'cpp', <q-args>, <bang>0)
+
+"riggrep search function define
+
+function! RgClassInhiert()
+    "let cmd="!rg '(class|struct).*:.*(public|private|protected).*\bIStorage\b' -t cpp --no-filename|cut -d ' ' -f 2 >/tmp/test"
+    let word = expand("<cword>")
+    let cmd="!rg '(class|struct).*:.*(public|private|protected).*IStorage' -t cpp --no-filename|cut -d ' ' -f 2 >/tmp/test"
+    execute cmd
+endfunction
+
 " Files + devicons
 function! Fzf_dev()
   let l:fzf_files_options = '--preview "bat {2..-1} | head -'.&lines.'"'
