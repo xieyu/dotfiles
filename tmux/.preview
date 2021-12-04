@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#[ "$1" != '[cancel]' ] && [ "$1" != '[current]' ] && echo $1 | sed 's/: .*$//' | xargs -I{} tmux capture-pane -ep -t {}
+
+echo $1\
+ | awk -F ":"  '{printf("capture-pane -ep -t  %s:%s", $1,$2)}'\
+ | xargs tmux
