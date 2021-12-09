@@ -5,9 +5,17 @@ subgraph cluster_${1:title} {
 }
 endsnippet
 
+snippet fn "fn" b
+$1[style_func;label="{{
+	$1\l|
+	$2
+}}"];
+endsnippet
+
 snippet y_digraph
+#include "styles.h"
 digraph ${1:title} {
-	node[shape=box];
+	node[shape=box;style=round];
 	edge[color=gray40];
 	newrank=true;
 	rankdir=LR;

@@ -55,8 +55,9 @@ set expandtab
 set shiftround
 
 set completeopt=longest,menu
-set wildignore=*.o,*~,*.pyc,*.class
+set wildignore=*.o,*~,*.pyc,*.class,.git
 set wildmode=longest,list,full
+set path+=**
 
 au InsertLeave * set nopaste
 
@@ -64,9 +65,13 @@ set autoread
 set backspace=indent,eol,start
 
 set scl=auto
+set cursorline
+set showmatch
 
 
 "set clipboard=unnamed
+set clipboard=unnamed
+set clipboard+=unnamedplus
 
 autocmd BufNewFile,BufRead *.vue set ft=javascript syntax=html 
 hi pythonSelf ctermfg=174 guifg=#6094DB cterm=bold gui=bold
@@ -128,6 +133,8 @@ nmap Y "+y
 nmap P "+p
 
 "FZF
+let $FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,target/debug,target/*/debug,*.svg,*.jpeg,*.png}"'
+
 nmap <leader>h :History<CR>
 nmap <leader>f :execute "Rg "."<C-r><C-w>"<CR>
 nmap <leader>l :Lines<CR>
@@ -144,9 +151,9 @@ Plug 'dense-analysis/ale'
 
 Plug 'Yggdroot/indentLine'
 
+" quick jump
 Plug 'ggandor/lightspeed.nvim', {'branch': 'main'}
 
-"utils
 Plug 'scrooloose/nerdtree'
 
 
@@ -160,26 +167,24 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 
 
+Plug 'sbdchd/neoformat'
 
 Plug 'lfv89/vim-interestingwords'
-
 "color theme
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
+Plug 'glepnir/zephyr-nvim'
+Plug 'shaunsingh/nord.nvim'
 
-Plug 'ryanoasis/vim-devicons'
-source ~/.vim/configs/plug/devicons.vim
+"Plug 'ryanoasis/vim-devicons'
+"let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {} " needed
+"let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
+"let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*vim_.*\|.*vimrc.*'] = ''
+"let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*zsh_.*\|.*zshrc.*'] = ''
 
 
 "rust
 Plug 'rust-lang/rust.vim'
-Plug 'rhysd/rust-doc.vim'
-let g:rust_doc#define_map_K = 0
-augroup vimrc-rust
-    autocmd!
-    autocmd FileType rust nnoremap <buffer><silent>K :<C-u>DeniteCursorWord rust/doc<CR>
-augroup END
-
 "go
 Plug 'fatih/vim-go'
 
@@ -199,15 +204,14 @@ Plug 'florentc/vim-tla'
 
 " markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
 Plug 'tikhomirov/vim-glsl'
 
+Plug 'prettier/vim-prettier'
 
 " git
 Plug 'mhinz/vim-signify' 
@@ -216,15 +220,29 @@ Plug 'tpope/vim-surround'
 
 Plug 'xieyu/vim-cd'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'NFrid/due.nvim', {'branch': 'main'}
+"Plug 'nvim-neorg/neorg', {'branch': 'main'}
+
+
 "grpahviz
 Plug 'liuchengxu/graphviz.vim'
 let g:graphviz_output_format = 'svg'
 autocmd Filetype dot nnoremap <leader>c :GraphvizCompile svg<CR>
 autocmd Filetype dot nnoremap <leader>r :Graphviz svg<CR>
-autocmd BufWritePost *.dot GraphvizCompile
+"autocmd BufWritePost *.dot GraphvizCompile
+autocmd BufWritePost *.dot silent !cpp -E -P "%"|dot -T svg -o "%:r.svg"
+
+
 call plug#end()
 
 colorscheme onedark
+
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *  Neoformat
+augroup END
 
 "open plug github repo in browser by press enter
 function! s:go_github()
@@ -236,5 +254,14 @@ function! s:go_github()
         call netrw#BrowseX(s:url, 0)
     end
 endfunction
-
 autocmd FileType *vim,*zsh,*bash,*tmux nnoremap <buffer> <silent> <cr> :call <sid>go_github()<cr>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+lua << EOF
+require('due_nvim').setup {}
+EOF

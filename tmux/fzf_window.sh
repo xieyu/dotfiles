@@ -7,6 +7,6 @@ windows=$(echo "$session_windows"|grep -v "^$current_window\$")
 
 
 echo "$windows"\
- | fzf --reverse --header="select session window" --preview="$current_dir/.preview {}"\
+ | fzf --reverse --header="select session:window" --preview="$current_dir/.preview {}"\
  | awk -F ":"  '{printf("switch-client -t %s ; select-window -t %s", $1, $2)}'\
  | xargs tmux

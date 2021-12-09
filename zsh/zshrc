@@ -55,3 +55,5 @@ if [ -f '/opt/t/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/t/google-cloud-sd
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/t/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/t/google-cloud-sdk/completion.zsh.inc'; fi
 
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}"
+

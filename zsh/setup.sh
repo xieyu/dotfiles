@@ -22,4 +22,7 @@ ln -sf "$SCRIPT_DIR/completions/_fzf" ~/.zsh_completions/_fzf
 ln -sf "$SCRIPT_DIR/completions/_gi"  ~/.zsh_completions/_gi
 ln -sf "$SCRIPT_DIR/completions/_hub" ~/.zsh_completions/_hub
 
+
 [[ "$SHELL" =~ "zsh" ]] || chsh -s "$(command -v zsh)"
+
+#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
