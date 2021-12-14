@@ -1,0 +1,8 @@
+snippet  my_nn_module "class Mymodule" b
+class ${1:classname}(nn.Module):
+	def __init__(self,$2):
+		super($1, self).__init__()
+
+	def forward(self, x):
+		pass
+endsnippet

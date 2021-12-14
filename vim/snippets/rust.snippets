@@ -76,3 +76,20 @@ snippet gd_get_node "get node with type"
 	.expect("Missing $2")
 	.cast::<gdnative::$3>()
 	.expect("Unable to cast to $3");
+
+
+snippet  leetcode "leet code solution" b
+	pub struct Solution {}
+
+	impl Solution {
+		pub fn ${1:fn}($2) -> $3 {
+		}
+	}
+
+	#[cfg(test)]
+	mod tests {
+		use super::*;
+		#[test]
+		fn $1_test() {
+		}
+	}
