@@ -93,3 +93,39 @@ snippet  leetcode "leet code solution" b
 		fn $1_test() {
 		}
 	}
+
+snippet impl_yew_component"yew Compoent"
+	impl Component for $1 {
+		type Message = ();
+		type Properties = ();
+
+		fn create(ctx: &Context<Self>) -> Self {
+			Self{}
+		}
+
+		fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
+			false
+		}
+
+		fn view(&self, ctx: &Context<Self>) -> Html {
+			html!{
+				$2
+			}
+		}
+	}
+
+snippet lt_solution "lt solution" b
+	pub struct Solution{}
+	
+	impl Solution {
+		pub fn $1($2){
+			$0
+		}
+	}
+	#[cfg(test)]
+	mod tests {
+		use super::*;
+		#[test]
+		fn test_$1() {
+		}
+	}

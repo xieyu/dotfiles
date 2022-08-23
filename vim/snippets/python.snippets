@@ -6,3 +6,26 @@ class ${1:classname}(nn.Module):
 	def forward(self, x):
 		pass
 endsnippet
+
+snippet dot_node "graphviz node" b
+$1 = Wrapper("""$1|
+$2
+""")
+b.node($1)
+endsnippet
+
+
+snippet dot_fn "graphviz node" b
+$1 = Wrapper("""$1""")
+b.node($1)
+endsnippet
+
+
+snippet dot_graph "dot graph" b
+from dot_graph_builder import Builder, NodeStyles
+from varname.helpers import Wrapper
+b = Builder(name="Router")
+b.set_node_style(NodeStyles.light_gray)
+$0
+print(b.source())
+endsnippet

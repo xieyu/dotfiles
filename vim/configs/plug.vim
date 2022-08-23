@@ -20,6 +20,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'untitled-ai/jupyter_ascending.vim'
 
 source ~/.vim/configs/plug/fzf.vim
 
@@ -96,3 +97,5 @@ set conceallevel=2
 call plug#end()
 
 colorscheme onedark
+
+let g:jupyter_ascending_python_executable = 'python3'
